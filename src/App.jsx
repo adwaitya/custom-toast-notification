@@ -97,12 +97,12 @@ function App() {
           </Body>
           <Footer>
             <div>
-              <span>by </span>
+              <span>Developed By </span>
               <a
-                href="https://www.linkedin.com/in/adwaitya-sadhukhan-6a213988/"
+                href="https://adwaitya.netlify.app/"
                 target="_blank"
               >
-                @Adwaitya
+                 Adwaitya Sadhukhan
               </a>
             </div>
             <div></div>

@@ -115,7 +115,7 @@ export const CodeBlock = styled.div`
 export const GithubAnchor = styled.a`
   color: #97a0af;
   transition: color 200ms;
-  :hover,
+  &:hover,
   :focus {
     color: #253858;
   }
@@ -147,17 +147,72 @@ export const Button = styled.button`
       padding-right: 1em;
       transition: box-shadow 150ms cubic-bezier(0.2, 0, 0, 1),
         transform 150ms cubic-bezier(0.2, 0, 0, 1);
-      :hover,
+      &:hover,
       :focus {
         outline: 0;
         boxshadow: 0 2px 1px rgba(9, 30, 66, 0.13);
       }
-      :hover {
+      &:hover {
         transform: scale(1.03);
       }
-      :active {
+      &:active {
         transform: scale(0.97);
         boxshadow: 0 0 0 rgba(9, 30, 66, 0.13);
+      }
+    `;
+  }}
+`;
+
+export const StyledRadio = styled.input`
+  ${(props) => {
+    const bgcolor = buttonBg[props.color ?? "success"];
+    return css`
+      appearance: none;
+      margin: 0;
+      width: 20px;
+      height: 20px;
+      border: 2px solid ${bgcolor[1]};
+      border-radius: 50%;
+      transition: all 0.1s ease-in-out;
+
+      &::after {
+        content: "";
+        display: block;
+        border-radius: 50%;
+        width: 12px;
+        height: 12px;
+        margin: 2px;
+      }
+
+      &:checked::after {
+        background: linear-gradient(to bottom right, ${bgcolor.join(",")})
+          no-repeat left top;
+      }
+
+      &:hover::after {
+        background: linear-gradient(to bottom right, ${bgcolor.join(",")})
+          no-repeat left top;
+      }
+
+      &:focus {
+        outline: 2px solid ${colors.Y400};
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+        border-color: #ddd;
+        background: linear-gradient(to bottom right, ${bgcolor.join(",")})
+          no-repeat left top;
+
+        &::after {
+          background: linear-gradient(to bottom right, ${bgcolor.join(",")})
+            no-repeat left top;
+        }
+
+        &:checked::after {
+          background: linear-gradient(to bottom right, ${bgcolor.join(",")})
+          no-repeat left top;
+        }
       }
     `;
   }}
