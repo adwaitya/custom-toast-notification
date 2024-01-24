@@ -4,6 +4,14 @@ import * as colors from "./colors";
 const gutter = 15;
 const containerWidth = 1140;
 
+const buttonBg = {
+  info: [colors.B100, colors.B200],
+  success: [colors.G200, colors.G300],
+  error: [colors.R300, colors.R400],
+  warning: [colors.Y300, colors.Y400],
+  snack: [colors.P300, colors.P400],
+};
+
 // styled components
 // ------------------------------
 
@@ -75,9 +83,26 @@ export const Icon = styled.div`
   width: 32px;
 `;
 
-export const StretchGroup = styled.div``;
+export const StretchGroup = styled.div`
+    display:flex;
+    flex:1;
+    flex-direction:row;
+    max-width:100%;
+`;
+export const ContentBlock = styled.div`
+${(props) => {
+  return css`
+     display:flex;
+     flex-direction:column;
+     flex:1;
+     justify-content:space-between;
+  `;
+}}
+`;
 
-export const GithubAnchor  = styled.a`
+export const CodeBlock = styled.div``;
+
+export const GithubAnchor = styled.a`
   color: #97a0af;
   transition: color 200ms;
   :hover,
@@ -86,14 +111,46 @@ export const GithubAnchor  = styled.a`
   }
 `;
 
-
 export const Body = styled.div`
-  align-items:center;
-  display:flex;
-  flex:1;
-  justify-content:space-between;
-  margin-bottom:1em;
-  margin-top:1em;
+  align-items: center;
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  margin-bottom: 1em;
+  margin-top: 1em;
+`;
+
+export const Button = styled.button`
+  ${(props) => {
+    const bgcolor = buttonBg[props.appearance ?? "success"];
+    return css`
+      background: linear-gradient(to bottom right, ${bgcolor.join(",")})
+        no-repeat left top;
+      color: white;
+      border: 0;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: inherit;
+      line-height: 2.2em;
+      padding-left: 1em;
+      padding-right: 1em;
+      transition: box-shadow 150ms cubic-bezier(0.2, 0, 0, 1),
+        transform 150ms cubic-bezier(0.2, 0, 0, 1);
+      :hover,
+      :focus {
+        outline: 0;
+        boxshadow: 0 2px 1px rgba(9, 30, 66, 0.13);
+      }
+      :hover {
+        transform: scale(1.03);
+      }
+      :active {
+        transform: scale(0.97);
+        boxshadow: 0 0 0 rgba(9, 30, 66, 0.13);
+      }
+    `;
+  }}
 `;
 
 export const Footer = styled.div``;
