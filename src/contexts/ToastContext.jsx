@@ -38,7 +38,7 @@ export const ToastContextProvider = ({ children }) => {
   const value = { success, warning, info, error, remove };
   return (
     <ToastContext.Provider value={value}>
-      <ToastsContainer toasts={state.toasts} position="bottom-right"/>
+      <ToastsContainer toasts={state.toasts} position="top-right"/>
       {children}
     </ToastContext.Provider>
   );

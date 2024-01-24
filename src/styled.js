@@ -84,23 +84,33 @@ export const Icon = styled.div`
 `;
 
 export const StretchGroup = styled.div`
-    display:flex;
-    flex:1;
-    flex-direction:row;
-    max-width:100%;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  max-width: 100%;
 `;
 export const ContentBlock = styled.div`
-${(props) => {
-  return css`
-     display:flex;
-     flex-direction:column;
-     flex:1;
-     justify-content:space-between;
-  `;
-}}
+  ${(props) => {
+    return css`
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: space-between;
+    `;
+  }}
 `;
 
-export const CodeBlock = styled.div``;
+export const CodeBlock = styled.div`
+  ${(props) => {
+    return css`
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: space-between;
+      border: 1px solid #ddd;
+    `;
+  }}
+`;
 
 export const GithubAnchor = styled.a`
   color: #97a0af;
